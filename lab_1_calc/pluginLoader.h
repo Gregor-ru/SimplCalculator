@@ -7,3 +7,5 @@
 void loadPlugins(std::map<std::string, Plugin>& plugins);
 
 #endif // PLUGIN_LOADER_H
+
+// for PR

@@ -3,13 +3,13 @@
 
 double evaluateFunction(const Plugin& plugin, std::vector<double>& args) {
     if (args.size() != plugin.argCount) {
-        std::cerr << "Неверное количество аргументов для функции " << plugin.name << std::endl;
+        std::cerr << "Invalid number of arguments for function " << plugin.name << std::endl;
         return 0.0;
     }
 
     double* argArray = args.data();
 
-    std::cout << "Вызов функции " << plugin.name << " с аргументами: ";
+    std::cout << "Calling a function " << plugin.name << " with arguments: ";
     for (auto arg : args) {
         std::cout << arg << " ";
     }
@@ -17,7 +17,9 @@ double evaluateFunction(const Plugin& plugin, std::vector<double>& args) {
 
     double result = plugin.execute(argArray);
 
-    std::cout << "Результат выполнения функции " << plugin.name << ": " << result << std::endl;
+    std::cout << "Function execution result" << plugin.name << ": " << result << std::endl;
 
     return result;
 }
+
+// for PR
