@@ -104,7 +104,7 @@ double ExpressionEvaluator::parseAndEvaluate(const std::string& expression) {
             expr.replace(match.position(0), match.length(0), std::to_string(result));
         }
         else {
-            std::cerr << "Функция " << funcName << " не найдена." << std::endl;
+            std::cerr << "Function " << funcName << " not found." << std::endl;
             return 0.0;
         }
     }
@@ -116,3 +116,5 @@ double ExpressionEvaluator::parseAndEvaluate(const std::string& expression) {
 double ExpressionEvaluator::evaluate(const std::string& expression) {
     return parseAndEvaluate(expression);
 }
+
+// for PR

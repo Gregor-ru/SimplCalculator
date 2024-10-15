@@ -9,12 +9,14 @@ Calculator::Calculator() : evaluator(plugins) {
 void Calculator::run() {
     std::string expression;
     while (true) {
-        std::cout << "Введите выражение: ";
+        std::cout << "Enter an expression: ";
         std::getline(std::cin, expression);
 
         if (expression == "exit") break;
 
         double result = evaluator.evaluate(expression);
-        std::cout << "Результат: " << result << std::endl;
+        std::cout << "Result: " << result << std::endl;
     }
 }
+
+// for PR

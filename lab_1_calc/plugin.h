@@ -14,3 +14,5 @@ struct Plugin {
 double evaluateFunction(const Plugin& plugin, std::vector<double>& args);
 
 #endif // PLUGIN_H
+
+// for PR

@@ -7,7 +7,7 @@ void loadPlugins(std::map<std::string, Plugin>& plugins) {
     HANDLE hFind = FindFirstFileW(L"./plugins/*.dll", &findFileData);
 
     if (hFind == INVALID_HANDLE_VALUE) {
-        std::cerr << "Плагины не найдены." << std::endl;
+        std::cerr << "No plugins found." << std::endl;
         return;
     }
 
@@ -28,16 +28,18 @@ void loadPlugins(std::map<std::string, Plugin>& plugins) {
                 plugin.syntax = getSyntax();
                 plugin.execute = execute;
                 plugins[plugin.name] = plugin;
-                std::cout << "Загружен плагин: " << plugin.name << std::endl;
+                std::cout << "Plugin loaded: " << plugin.name << std::endl;
             }
             else {
-                std::wcerr << L"Ошибка загрузки функций из " << findFileData.cFileName << std::endl;
+                std::wcerr << L"Error loading functions from: " << findFileData.cFileName << std::endl;
             }
         }
         else {
-            std::wcerr << L"Ошибка загрузки плагина: " << findFileData.cFileName << std::endl;
+            std::wcerr << L"Error loading plugin: " << findFileData.cFileName << std::endl;
         }
     } while (FindNextFileW(hFind, &findFileData) != 0);
 
     FindClose(hFind);
 }
+
+// for PR
